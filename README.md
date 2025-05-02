@@ -57,8 +57,11 @@ This project aims to identify drivers of customer churn and build predictive mod
 ### ROC Curve - Logistic Regression vs. Tuned Random Forest
 - ![ROC Curve](assets/images/ROC_LR_RFT_Comparison.png)
 
-### Feature Importance - Random Forest (Original vs Tuned)
-- ![RF Importance](assets/images/FeatureImportance_RF.png)
+### Feature Importance - Random Forest (Original)
+- ![RF Importance](assets/images/FeatureImportance_RF_Orig.png)
+
+### Feature Importance - Random Forest (Tuned)
+- ![RF Importance](assets/images/FeatureImportance_RF_Tuned.png)
 
 ### Coefficients - Logistic Regression
 - ![Log Coefficients](assets/images/LogisticRegressionCoefficients.png)
