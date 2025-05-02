@@ -39,32 +39,59 @@ This project aims to identify drivers of customer churn and build predictive mod
 ### Churn by Subscription Type
 - ![Subscription Type](assets/images/ChurnBySubscriptionType.png)
 
+- Customers on the Basic plan showed significantly higher churn compared to Pro or Enterprise tiers.
+- More advanced subscriptions (e.g. Pro) were associated with higher retention, suggesting a correlation between perceived value and stickiness.
+
 ### Churn by Contract Length
 - ![Contract Length](assets/images/ChurnByContractLength.png)
+
+- Customers with Quarterly contracts had the highest churn rates, indicating short-term commitments are riskier.
+- Annual contracts saw lower churn, supporting the use of longer-term engagement strategies.
 
 ### Tenure by Churn Status (Boxplot)
 - ![Tenure Boxplot](assets/images/TenureBoxplot.png)
 
+- Churned customers had shorter tenure on average compared to retained users.
+- Most churn occurs early in the customer lifecycle, highlighting onboarding and early engagement as critical.
+
 ### Support Calls by Churn Status
 - ![Support Calls](assets/images/SupportCallsBoxplot.png)
 
+- Users who churned had a noticeably higher volume of support calls.
+- Indicates unresolved frustration or poor user experience as a leading churn driver.
+
 ### Last Interaction by Churn Status
 - ![Last Interaction](assets/images/LastInteractionBoxplot.png)
+- Customers who churned had older last interaction dates, suggesting disengagement prior to cancellation.
+- Recent interaction correlates with retention — reactivation efforts could help.
 
 ### ROC Curve - Logistic Regression vs. Random Forest
 - ![ROC Curve](assets/images/ROC_LR_RF_Comparison.png)
 
+- Logistic Regression achieved a higher AUC (0.79) than both Random Forest models, indicating superior classification performance.
+- The ROC curve clearly shows better trade-offs between true and false positives across thresholds.
+
 ### ROC Curve - Logistic Regression vs. Tuned Random Forest
 - ![ROC Curve](assets/images/ROC_LR_RFT_Comparison.png)
+
+- Tuned Random Forest's ROC curve improved over the default model (AUC 0.68 vs. 0.62), reflecting better probability calibration despite limited gains in recall or accuracy.
 
 ### Feature Importance - Random Forest (Original)
 - ![RF Importance](assets/images/FeatureImportance_RF_Orig.png)
 
+- Support Calls, Payment Delay, and Last Interaction were top drivers of churn in the Random Forest model.
+- Feature importance distribution reflects behavioral influence more than demographic traits.
+
 ### Feature Importance - Random Forest (Tuned)
 - ![RF Importance](assets/images/FeatureImportance_RF_Tuned.png)
 
+- the tuned model has slightly lower scores for support call, tenure and last interaction, and higher scores for total spend, age, and gender. This insight reflects the shifts in "thinking" that the model exhibits in response to the altered parameters
+
 ### Coefficients - Logistic Regression
 - ![Log Coefficients](assets/images/LogisticRegressionCoefficients.png)
+
+- Positive coefficients (e.g. Support Calls, Payment Delay) increase churn probability.
+- Negative coefficients (e.g. Tenure, Total Spend) reduce churn — offering clear retention targets.
 
 ---
 
