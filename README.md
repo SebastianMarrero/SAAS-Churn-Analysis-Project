@@ -39,27 +39,27 @@ This project aims to identify drivers of customer churn and build predictive mod
 **Churn Value Make-up**
 0 (Non Churn) - 52.63%;
 1 (Churn) - 47.37%;
-- Minimal Skew in Churn values.
-- Essential to know for adequate and effective modeling techniques.
+- Minimal Skew in Churn values make-up.
+- Essential to know for adequate and effective modeling technique.
 
 ### Logistic Regression
-- predicted churn rate accurately over 71% of the time.
+- Predicted churn rate accurately over 71% of the time.
 - Caught 77% of all real churners — strong recall.
-- Solid overall balance between false positives and false negatives.
+- Solid overall balance between false positives and false negatives - a primary indicator of an adequately-fitted model.
 
-#### Logistic Regression Coefficients
-- Churn is mostly driven by elevated support calls (2.206015), delayed payments (0.898523), and inactivity (0.522829). Meanwhile, customers who spend more (1.402743), use the platform frequently (-0.127561), or have longer tenure (-0.133455) are significantly less likely to churn. 
-- Age (+0.43) had a modest positive effect, while Gender (–0.57) indicated a lower churn likelihood for males (assuming label encoding).
+#### Logistic Regression coefficient calculation analysis
+- Churn is mostly driven by elevated support calls (2.206015), delayed payments (0.898523), and inactivity (0.522829). Meanwhile, customers who spend more (-1.402743), use the platform frequently (-0.127561), or have longer tenure (-0.133455) are significantly less likely to churn. 
+- Age (0.43) had a modest positive effect, while Gender (–0.57) indicated a lower churn likelihood for males (assuming label encoding).
 - Subscription Type and Contract Length showed minimal predictive influence in the current model.
-- These insights can guide retention campaigns that prioritize high-risk exhibiting the risk factors users and reinforce loyalty among engaged and high-value customers.
+- These insights can guide retention campaigns that prioritize customers exhibiting risk factors and reinforce loyalty among engaged and high-value customers.
 
 ### Random Forest Classifier (non-tuned)
-- predicted churn rate accurately over 55% (rounded up ~ .54502) of the time - an esitimate comparable to a random guess.
+- predicted churn rate accurately over 55% (rounded up ~ .54502) of the time - an estimate comparable to a random guess.
 - Exhibits strong recall at 95% but subpar precision at 50%, indicating the model correctly identifies most of the churners but misclassifies non-churners at a rate comparable to randomly guessing.
-- Random Forest Classifier misclassifies many loyal customers as churners, an insight that could result in wasteful expenditure of retention resources that could damage relationships.
+- Such a gross over-estimation in churn rate and misclassification could result in wasteful expenditure of retention resources and damaged relationships.
 
 ### Random Forest Classifier (tuned)
-- Adjusted the hyperparameters to improve performance and achieve a more accurate ROC Curve and AUM estimates.
+- Adjusted the hyperparameters (max_depth, main_samples_split, class_weight='balanced'), min_samples_leaf) to improve performance and achieve a more optimal ROC Curve and AUM estimates.
 - Tuninng our model ensures reduction in negative effects of overfitting and improvement in generalization.
 - Our tuned model predicted churn rate accurately over 56% (~.55520) of the time - an infinitesimal difference compared to our non-tuned model.
 -  Exhibits slightly weaker recall at 93% and the same precision at 50%.
@@ -71,27 +71,27 @@ This project aims to identify drivers of customer churn and build predictive mod
 ### Churn by Subscription Type
 ![Subscription Type](assets/images/ChurnBySubscriptionType.png)
 
-- Customers on the Basic plan showed slightly higher churn compared to Premium or Standard tiers.
-- More advanced subscriptions (e.g. premium) were associated with higher retention, suggesting a correlation between perceived value and customer satisfcation.
+- Customers on the Basic plan showed slightly higher churn compared to Premium or Standard plans.
+- More advanced subscriptions (e.g. premium) were associated with higher, albeit insignificant, retention, suggesting at least a slight correlation between perceived value and customer satisfcation.
 
 ### Churn by Contract Length
 ![Contract Length](assets/images/ChurnByContractLength.png)
 
-- Customers with Quarterly contracts had slightly higher churn rates, indicating short-term commitments are riskier.
+- Customers with Quarterly contracts had slightly higher churn rates, indicating that short-term commitments are riskier.
 - Annual contracts saw lower churn, supporting the use of longer-term engagement strategies.
-- The monthly subscription attrition data is statistically impossible. We'll be creating a binary column that identifies entries with monthly contract lengths to exclude them in the ensuing analysis if it contributes to skewed analysis. However, for the sake of documentation, I will leave the skewed data.
+- The monthly subscription attrition data is statistically impossible. the data pre-processing and analysis that ensues creates a binary column that identifies entries with monthly contract lengths to exclude them in the following analysis. However, for the sake of documentation, I will leave the skewed data in the visualization.
 
 
 ### Tenure by Churn Status (Boxplot)
 ![Tenure Boxplot](assets/images/TenureBoxplot.png)
 
-- Churned customers had shorter tenure on average compared to retained users.
-- Most churn occurs early in the customer lifecycle, highlighting onboarding and early engagement as critical.
+- Customers who churned had shorter tenure on average compared to users who did not churn.
+- Onboarding and early engagement are critical in retaining customers.
 
 ### Support Calls by Churn Status
 ![Support Calls](assets/images/SupportCallsBoxplot.png)
 
-- Users who churned had a noticeably higher volume of support calls.
+- Customers who churned had a noticeably higher volume of support calls.
 - This graph suggests unresolved frustration or poor customer service experience as a leading churn driver.
 
 ### Last Interaction by Churn Status
@@ -102,7 +102,7 @@ This project aims to identify drivers of customer churn and build predictive mod
 ### ROC Curve - Logistic Regression vs. Random Forest
 ![ROC Curve](assets/images/ROC_LR_RF_Comparison.png)
 
-- Logistic Regression achieved a higher AUC (0.79) than both Random Forest models, indicating superior classification performance.
+- Logistic Regression achieved a higher AUC (0.79) than the Random forest model, indicating superior classification performance.
 - Random Forest Classifier achieved a subpar AUC (0.62), exhibiting sings of over-fitting - high training accuracy but dismal recall on test data.
 - The ROC curve clearly shows better trade-offs between true and false positives across thresholds for our Logistic Regression compared to our random forest classifier model.
 - Said differently, our Logistic Regression consistently outperforms Random Forest in distinguishing churners from loyal customers.
@@ -114,12 +114,13 @@ This project aims to identify drivers of customer churn and build predictive mod
 ![ROC Curve](assets/images/ROC_LR_RFT_Comparison.png)
 
 - Tuned Random Forest's ROC curve improved noticeably over the default model (AUC 0.68 vs. 0.62), reflecting better probability calibration despite negligible differences in precision and recall and overall accuracy.
+- However, our logistic regression more accurately modeled churn in our test-data, suggesting that even the tuned Random Forest Classifier model is not capable of acheiving a proper fit of the test-data.
 
 ### Feature Importance - Random Forest (Original)
 ![RF Importance](assets/images/FeatureImportance_RF_Orig.png)
 
 - Support Calls, total spend, and payment delay were top drivers of churn in the non-tuned Random Forest model.
-- Feature importance distribution reflects behavioral influence more than demographic traits.
+- This feature importance distribution more prominently reflects behavioral influence than demographic traits.
 
 ### Feature Importance - Random Forest (Tuned)
 ![RF Importance](assets/images/FeatureImportance_RF_Tuned.png)
