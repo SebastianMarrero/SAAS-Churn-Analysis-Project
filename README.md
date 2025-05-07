@@ -36,7 +36,7 @@ This project aims to identify drivers of customer churn and build predictive mod
 
 ## Analysis Findings
 
-**Churn Rate**
+**Churn Value Make-up**
 0  -  52.631497;
 1  -  47.368503;
 - Minimal Skew in Churn values.
