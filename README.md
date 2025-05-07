@@ -39,13 +39,13 @@ This project aims to identify drivers of customer churn and build predictive mod
 **Churn Rate**
 0  -  52.631497;
 1  -  47.368503;
-- Minimal Skew in Churn values
-- Essential to know for adequate and effective modeling techniques
+- Minimal Skew in Churn values.
+- Essential to know for adequate and effective modeling techniques.
 
 ### Logistic Regression
-- predicted churn rate accurately over 71% of the time
-- Caught 77% of all real churners — strong recall
-- Solid overall balance between false positives and false negatives
+- predicted churn rate accurately over 71% of the time.
+- Caught 77% of all real churners — strong recall.
+- Solid overall balance between false positives and false negatives.
 
 #### Logistic Regression Coefficients
 - Churn is mostly driven by elevated support calls (2.206015), delayed payments (0.898523), and inactivity (0.522829). Meanwhile, customers who spend more (1.402743), use the platform frequently (-0.127561), or have longer tenure (-0.133455) are significantly less likely to churn. 
@@ -54,16 +54,16 @@ This project aims to identify drivers of customer churn and build predictive mod
 - These insights can guide retention campaigns that prioritize high-risk exhibiting the risk factors users and reinforce loyalty among engaged and high-value customers.
 
 ### Random Forest Classifier (non-tuned)
-- predicted churn rate accurately over 55% (rounded up ~ .54502) of the time - an esitimate comparable to a random guess
+- predicted churn rate accurately over 55% (rounded up ~ .54502) of the time - an esitimate comparable to a random guess.
 - Exhibits strong recall at 95% but subpar precision at 50%, indicating the model correctly identifies most of the churners but misclassifies non-churners at a rate comparable to randomly guessing.
-- Random Forest Classifier misclassifies many loyal customers as churners, an insight that could result in wasteful expenditure of retention resources that could damage relationships
+- Random Forest Classifier misclassifies many loyal customers as churners, an insight that could result in wasteful expenditure of retention resources that could damage relationships.
 
 ### Random Forest Classifier (tuned)
 - Adjusted the hyperparameters to improve performance and achieve a more accurate ROC Curve and AUM estimates.
 - Tuninng our model ensures reduction in negative effects of overfitting and improvement in generalization.
 - Our tuned model predicted churn rate accurately over 56% (~.55520) of the time - an infinitesimal difference compared to our non-tuned model.
 -  Exhibits slightly weaker recall at 93% and the same precision at 50%.
--  AUC score of 0.68, a noticeable improvement from 0.62 in our non-tuned model
+-  AUC score of 0.68, a noticeable improvement from 0.62 in our non-tuned model.
 ---
 
 ## Featured Visualizations
@@ -105,7 +105,7 @@ This project aims to identify drivers of customer churn and build predictive mod
 - Logistic Regression achieved a higher AUC (0.79) than both Random Forest models, indicating superior classification performance.
 - Random Forest Classifier achieved a subpar AUC (0.62), exhibiting sings of over-fitting - high training accuracy but dismal recall on test data.
 - The ROC curve clearly shows better trade-offs between true and false positives across thresholds for our Logistic Regression compared to our random forest classifier model.
-- Said differently, our Logistic Regression consistently outperforms Random Forest in distinguishing churners from loyal customers
+- Said differently, our Logistic Regression consistently outperforms Random Forest in distinguishing churners from loyal customers.
 - Our ROC test highlights the importance of evaluating model generalization, not just fit.
 
 - Overall, Given its high AUC and non-complex structure, the logistic regression serves as a reliable foundaction for churn-risk scoring systems,flagging at-risk customers early for intervention.
