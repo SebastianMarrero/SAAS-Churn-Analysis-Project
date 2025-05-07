@@ -1,7 +1,7 @@
 
 # SaaS Customer Churn Analysis
 
-Comprehensive churn analysis for a fictional SaaS company using real-world styled data from kaggle (https://www.kaggle.com/datasets/muhammadshahidazeem/customer-churn-dataset). This project applies logistic regression and random forest models to predict customer churn, supported by exploratory analysis, feature engineering, and visualization. Key performance metrics, model comparisons, and business recommendations are included to inform customer retention strategies.
+Comprehensive churn analysis for a fictional SaaS company using real-world styled data from kaggle (https://www.kaggle.com/datasets/muhammadshahidazeem/customer-churn-dataset). This project applies logistic regression and random forest models to predict customer churn and is supported by an exploratory analysis of its features and data composition through visualization. Key performance metrics, model comparisons, and business recommendations are included to inform customer retention strategies.
 
 ---
 
