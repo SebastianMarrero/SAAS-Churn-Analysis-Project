@@ -20,7 +20,7 @@ This project aims to identify drivers of customer churn and build predictive mod
 
 ## Tech Stack
 
-- **Python** (pandas, matplotlib, seaborn, scikit-learn, Standard Scaling, Label Encoding)  
+- **Python** (pandas, matplotlib, seaborn, scikit-learn, Standard Scaling, Label Encoding, Receiver Operating Characteristic, Area Under Curve for classification model evaluation)  
 - **Jupyter Notebook** (EDA, modeling, visualization)  
 - **GitHub Pages + Jekyll** (Portfolio publishing)
 
